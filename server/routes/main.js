@@ -4,7 +4,7 @@ const router = express.Router();
 // Routes 
 router.get('/', (req, res) => {
   const locals = {
-    title: 'Node.js Blog',
+    title: 'ME Blog',
     description: 'Simple Blog built with Node.js, Express and MongoDB',
   };
 
