@@ -251,9 +251,9 @@ img {
 }
 
 
-.articles {
+/* .articles {
   white-space: pre-wrap;
-}
+} */
 
 
 /* Footer */
@@ -310,7 +310,7 @@ footer {
 
 .searchBar.open {
   transform: translateY(0);
-  transition: transform 0.1s;
+  transition: transform 0.3s;
 }
 
 .searchBar input {
