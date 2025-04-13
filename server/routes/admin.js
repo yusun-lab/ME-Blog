@@ -106,7 +106,7 @@ router.get('/dashboard', authMiddleware, async (req, res) => {
 });
 
 
-  /* 
+/* 
   * GET /
   * Admin - Create New Post
 */
@@ -127,7 +127,7 @@ router.get('/add-post', authMiddleware, async (req, res) => {
   }
 });
 
-  /* 
+/* 
   * POST /
   * Admin - Create New Post
 */
@@ -152,7 +152,7 @@ router.post('/add-post', authMiddleware, async (req, res) => {
 
 
 
-  /* 
+/* 
   * GET /
   * Admin - Edit Post
 */
@@ -178,7 +178,7 @@ router.get('/edit-post/:id', authMiddleware, async (req, res) => {
 });
 
 
-  /* 
+/* 
   * PUT /
   * Admin - Edit Post
 */
@@ -239,6 +239,21 @@ router.post('/register', async (req, res) => {
   }
   catch (error) {
     console.error(error);
+  }
+});
+
+
+
+/* 
+  * DELETE /
+  * Admin - Delete Post
+*/
+router.delete('/delete-post/:id', authMiddleware, async (req, res) => {
+  try {
+    await Post.deleteOne( { _id: req.params.id });
+    res.redirect('/dashboard');
+  } catch (error) {
+    console.log(error);    
   }
 });
 

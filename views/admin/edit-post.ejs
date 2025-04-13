@@ -2,9 +2,10 @@
 <div class="admin-title">
   <h2>Edit Post</h2>
 
-  <form action="/delete-post/<%= data._id %>?_method=DELETE" method="post">
+  <form action="/delete-post/<%= data._id %>?_method=DELETE" method="post" onsubmit="return confirm('Are you sure you want to delete this post?');">
     <input type="submit" value="Delete" class="btn-delete btn">
   </form>
+  
 </div>
 
 <form action="/edit-post/<%= data._id %>?_method=PUT" method="post">
