@@ -92,7 +92,7 @@ router.post('/search', async (req, res) => {
   try {
     const locals = {
       title: 'Search',
-      description: 'Simple Blog built with Node.js, Express and MongoDB',
+      description: 'Simple Blog built with Node.js, Express and MongoDB.',
     };
 
     let searchTerm = req.body.searchTerm;
