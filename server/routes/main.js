@@ -30,7 +30,8 @@ router.get('/', async (req, res) => {
       locals, 
       data, 
       current: page,
-      nextPage: hasNextPage ? nextPage : null
+      nextPage: hasNextPage ? nextPage : null,
+      currentRoute: '/'
     });
 
 
@@ -61,18 +62,22 @@ router.get('/', async (req, res) => {
 
 /* 
   * GET /
-  * Post :id
+  * Post: id
 */
 router.get('/post/:id', async (req, res) => {
-  try {
-    
+  try {    
     let slug = req.params.id
     
     const data = await Post.findById({ _id: slug});
+
+
+
     const locals = {
       title: data.title,
       description: 'Simple Blog built with Node.js, Express and MongoDB',
+      currentRoute: `/post/$(slug)`
     };
+
     res.render('post', { locals, data });
   }
   catch (error) {
@@ -134,8 +139,12 @@ function insertPostData () {
 
 
 router.get('/about', (req, res) => {
-  res.render('about');
+  res.render('about', {
+    currentRoute: '/about'
+  })
 });
+
+
 
 // function insertPostData () {
 //   Post.insertMany([
