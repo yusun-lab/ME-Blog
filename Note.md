@@ -1,0 +1,3 @@
+在首頁增加login鏈接
+增加contact頁
+在admin分開login和register

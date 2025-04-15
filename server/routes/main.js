@@ -75,10 +75,14 @@ router.get('/post/:id', async (req, res) => {
     const locals = {
       title: data.title,
       description: 'Simple Blog built with Node.js, Express and MongoDB',
-      currentRoute: `/post/$(slug)`
+      
     };
 
-    res.render('post', { locals, data });
+    res.render('post', { 
+      locals, 
+      data, 
+      currentRoute: `/post/${slug}` 
+    });
   }
   catch (error) {
     console.error(error);
@@ -112,7 +116,8 @@ router.post('/search', async (req, res) => {
     
     res.render("search", {
       data,
-      locals
+      locals,
+      currentRoute: '/search' 
     });
   }
   catch (error) {
