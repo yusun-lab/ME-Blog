@@ -338,3 +338,11 @@ footer {
 .pagination:hover {
   color: var(--black);
 }
+
+.contact a {
+  text-decoration: none;
+}
+
+.logout-link {
+  text-decoration: none;
+}
