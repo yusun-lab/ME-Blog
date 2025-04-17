@@ -13,6 +13,10 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
+  if(searchClose === null) {
+    return;
+  }
+  
   searchClose.addEventListener('click', function() {
     searchBar.style.visibility = 'hidden';
     searchBar.classList.remove('open');
