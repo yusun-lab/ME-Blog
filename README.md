@@ -30,18 +30,6 @@ The application uses Google Analytics for frontend tracking. It tracks specific 
 
 ---
 
-## Security
-The application mitigates common threats and vulnerabilities:
-1. **Cross-Site Scripting (XSS)**:
-   - User inputs are sanitized to prevent malicious scripts from being executed.
-   - EJS templates escape output by default to avoid injecting harmful scripts.
-2. **SQL Injection**:
-   - The application uses Mongoose, which prevents SQL injection by parameterizing queries.
-3. **Mitigation Example**:
-   - To prevent XSS, all user inputs are validated and sanitized using libraries like `express-validator`. For example, blog post titles and content are checked for invalid characters before being stored in the database.
-
----
-
 ## Performance Optimization
 Performance was optimized by:
 - Using MongoDB indexes to speed up database queries.
@@ -56,7 +44,7 @@ The backend provides the following endpoints:
 3. **PUT /edit-post/:id**: Edit an existing blog post.
 4. **DELETE /delete-post/:id**: Delete a blog post.
 
-The API responds with appropriate HTTP status codes: 401, 201, 409, 500.
+The API responds with appropriate HTTP status codes: 201, 401, 409, 500.
 
 ---
 
