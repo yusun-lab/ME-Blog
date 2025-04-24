@@ -187,7 +187,7 @@ router.get('/contact', (req, res) => {
 //     },
 //     {
 //       title: "NodeJs Limiting Network Traffic",
-//       body: "Learn how to limit netowrk traffic."
+//       body: "Learn how to limit network traffic."
 //     },
 //     {
 //       title: "Learn Morgan - HTTP Request logger for NodeJs",

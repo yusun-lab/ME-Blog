@@ -13,17 +13,23 @@ const jwtSecret = process.env.JWT_SECRET;
   * Check Login
 */
 const authMiddleware = (req, res, next) => {
-  const token = req.cookies.token;
+  // Reads the token from the request's cookies:
+  const token = req.cookies.token; 
 
+  // If there is no token, it means the user is not logged in, so it returns a 401 Unauthorized response:
   if (!token) {
-    return res.status(401).json({ message: 'Unauthorized' }); /* ??? */
+    return res.status(401).json({ message: 'Unauthorized' }); 
   }
   
+  // If the token exists, it verifies the token using the JWT secret:
   try {
     const decoded = jwt.verify(token, jwtSecret);
+    // It stores the user's ID from the token, so the server knows who is logged in.
     req.userId = decoded.userId;
+    // If the token is valid, it allows the request to continue by calling next().
     next();
   } catch (error) {
+    // If the token is invalid or expired, it catches the error and returns another 401 Unauthorized response.
     res.status(401).json({ message: 'Unauthorized' });
   }
 }
